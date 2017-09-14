@@ -7,6 +7,12 @@ describe("Contact") do
     contact = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
     expect(contact.full_name()).to(eq("Todd Smith"))
   end
+  describe('#save') do
+    it 'saves a contacts first and last name' do
+     contact = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
+     expect(contact.save).to(eq("Todd Smith"))
+    end
+  end
 end
 
 describe("Phone") do
@@ -24,6 +30,11 @@ describe('Address') do
 end
 
 describe('AddressBook') do
+  it 'is empty at first' do
+    addressbook = AddressBook.new()
+    addressbook.contacts
+    expect(addressbook.contacts).to(eq([]))
+  end
   it 'stores multiple instances of a contact object and returns them in an array' do
     todd = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
     matt = Contact.new({:first_name=> "Matt", :last_name=> "Brown" })

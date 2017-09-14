@@ -1,4 +1,4 @@
-require('./lib/**/*.rb')
+
 
 
 class Phone

@@ -6,7 +6,7 @@ class Contact
   @last_name = attributes.fetch(:last_name).to_s
   @addresses = []
   @phones = []
-  @id =
+  @id = []
   end
 
   def first_name

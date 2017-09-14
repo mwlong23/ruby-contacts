@@ -1,5 +1,7 @@
 require 'rspec'
 require 'contacts'
+require 'phone'
+require 'address'
 
 
 describe("Contact") do
@@ -29,21 +31,21 @@ describe('Address') do
   end
 end
 
-describe('AddressBook') do
-  it 'is empty at first' do
-    addressbook = AddressBook.new()
-    addressbook.contacts
-    expect(addressbook.contacts).to(eq([]))
-  end
-  it 'stores multiple instances of a contact object and returns them in an array' do
-    todd = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
-    matt = Contact.new({:first_name=> "Matt", :last_name=> "Brown" })
-    address_book = AddressBook.new()
-    todd_full = todd.full_name
-    todd_contact_object = address_book.contacts.push(todd_full)
-    expect(todd_contact_object).to(eq(["Todd Smith"]))
-    matt_full = matt.full_name
-    matt_contact_object = address_book.contacts.push(matt_full)
-    expect(matt_contact_object).to(eq(["Todd Smith","Matt Brown"]))
-  end
-end
+# describe('AddressBook') do
+#   it 'is empty at first' do
+#     addressbook = AddressBook.new()
+#     addressbook.contacts
+#     expect(addressbook.contacts).to(eq([]))
+#   end
+#   it 'stores multiple instances of a contact object and returns them in an array' do
+#     todd = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
+#     matt = Contact.new({:first_name=> "Matt", :last_name=> "Brown" })
+#     address_book = AddressBook.new()
+#     todd_full = todd.full_name
+#     todd_contact_object = address_book.contacts.push(todd_full)
+#     expect(todd_contact_object).to(eq(["Todd Smith"]))
+#     matt_full = matt.full_name
+#     matt_contact_object = address_book.contacts.push(matt_full)
+#     expect(matt_contact_object).to(eq(["Todd Smith","Matt Brown"]))
+#   end
+# end

@@ -1,12 +1,17 @@
 
 class Contact
+  attr_accessor :first_name, :last_name
+  attr_reader :id
   @@contacts = []
-  def initialize(attributes)
-  @first_name = attributes.fetch(:first_name).to_s
-  @last_name = attributes.fetch(:last_name).to_s
+  def initialize(first_name, last_name)
+  @first_name = first_name
+  @last_name = last_name
   @addresses = []
   @phones = []
-  @id = []
+  @id = @@contacts.length + 1
+  end
+  def self.all()
+    @@contacts
   end
 
   def first_name
@@ -22,7 +27,11 @@ class Contact
     full_name += " "
     full_name += @last_name
   end
+
   def save()
     @@contacts.push(self)
+  end
+  def self.clear()
+    @@contacts = []
   end
 end

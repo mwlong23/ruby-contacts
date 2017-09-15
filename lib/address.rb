@@ -1,10 +1,11 @@
 
 class Address
-  def initialize(attributes)
-    @street = attributes.fetch(:street).to_s
-    @city = attributes.fetch(:city).to_s
-    @state = attributes.fetch(:state).to_s
-    @zip = attributes.fetch(:zip).to_s
+  attr_accessor :street, :city, :state, :zip
+  def initialize(street, city, state,zip)
+    @street = street
+    @city = city
+    @state = state
+    @zip = zip
   end
   def full_address
     full_address = @street

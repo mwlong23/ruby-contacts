@@ -6,30 +6,34 @@ require 'address'
 
 describe("Contact") do
   it 'stores a contacts first/last name and returns full name.' do
-    contact = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
+    contact = Contact.new("Todd","Smith")
     expect(contact.full_name()).to(eq("Todd Smith"))
   end
   describe('#save') do
     it 'saves a contacts first and last name' do
-     contact = Contact.new({:first_name=> "Todd", :last_name=> "Smith" })
-     expect(contact.save).to(eq("Todd Smith"))
+     contact = Contact.new("Todd","Smith")
+     contact.save
+     contact2 = Contact.new("Mitch", "Long")
+     contact2.save
+     Contact.all()
+     expect(Contact.all()).to(eq([contact,contact2]))
     end
   end
 end
 
-describe("Phone") do
-  it 'stores a phone type andnumber and returns a string of phone type and number' do
-    phone = Phone.new({:phone_type => "work", :phone => "555-555-5555"})
-    expect(phone.phone_full()).to(eq('work: 555-555-5555'))
-  end
-end
-
-describe('Address') do
-  it 'Stores street, city, state and zip and prints them out in address format' do
-    address = Address.new({:street => "123 15th Ave", :city => "Seattle", :state => "WA", :zip => "98105"})
-    expect(address.full_address()).to(eq("123 15th Ave, Seattle, WA, 98105"))
-  end
-end
+# describe("Phone") do
+#   it 'stores a phone type andnumber and returns a string of phone type and number' do
+#     phone = Phone.new({:phone_type => "work", :phone => "555-555-5555"})
+#     expect(phone.phone_full()).to(eq('work: 555-555-5555'))
+#   end
+# end
+#
+# describe('Address') do
+#   it 'Stores street, city, state and zip and prints them out in address format' do
+#     address = Address.new({:street => "123 15th Ave", :city => "Seattle", :state => "WA", :zip => "98105"})
+#     expect(address.full_address()).to(eq("123 15th Ave, Seattle, WA, 98105"))
+#   end
+# end
 
 # describe('AddressBook') do
 #   it 'is empty at first' do

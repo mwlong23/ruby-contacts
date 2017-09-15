@@ -1,5 +1,7 @@
 <h2>Enter a contact: </h2>
 
+
+
 <form action="/" method="post">
   <div class="form-group">
     <label for="first-name">First name</label>
@@ -39,3 +41,8 @@
   </div>
   <button type="submit" class="btn">Submit</button>
 </form>
+
+<% @list.each do |item| %>
+<a href='item/<%= item.id() =>'>item.name</a>
+  <p><%= item.name %></p>
+<% end %>
